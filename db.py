@@ -4,6 +4,7 @@ import mysql.connector
 from mysql.connector import Error
 from variaveis import V
 from auth import Auth
+from db_variables import Var
 
 class UsuarioDAO:
 
@@ -11,10 +12,10 @@ class UsuarioDAO:
         try:
             self.conn = mysql.connector.connect(
                 host='localhost',
-                user='root',
-                password='netuno',
-                port=3306,
-                database='pythondb'
+                user=Var().DB_USER,
+                password=Var().DB_PASSWORD,
+                port=Var().DB_PORT,
+                database=Var().DB_NAME
             )
         except Error as e:
             print (e)
